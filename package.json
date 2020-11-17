@@ -1,0 +1,37 @@
+{
+  "name": "resty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-advanced-javascript-sararussert/resty.git"
+  },
+  "author": "Sara Russert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-advanced-javascript-sararussert/resty/issues"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
