@@ -11,6 +11,14 @@ And as developers, here are the high level development tasks that address the ab
 - Create a form that asks for a URL
 - Create buttons that let the user choose from the REST methods (get, post, put, delete)s
 
+# Application Flow:
+
+User enters an API URL
+Chooses a REST Method
+Clicks the “Go” button
+Application fetches data from the URL given, with the method specified
+Displays the response headers and results separately
+Both headers and results should be “pretty printed” JSON
 
 # UML
 ![UML for lab 26](./assets/lab26.jpeg)
