@@ -3,24 +3,33 @@ import React from 'react';
 class Form extends React.Component { 
   constructor(props) {
     super(props);
-    this.state = { method: 'get', url: ''};
+    this.state = { method: 'get', url: '', data: ''};
     this.updateUrl = this.updateUrl.bind(this);
     this.updateMethod = this.updateMethod.bind(this);
+    this.handleForm = this.handleForm.bind(this);
   }
 
   updateUrl(event) {
     this.setState({ url: event.target.value });
-    console.log(this.state);
   }
   updateMethod(event) {
     this.setState({ method: event.target.value });
-    console.log(this.state);
+  }
+
+  handleForm(e) {
+    e.preventDefault();
+    let apiUrl = this.state.url;
+    fetch(apiUrl)
+      .then(data => {
+        console.log('back from fetch', data);
+        this.props.handleSubmit(data);
+      });
   }
 
   render() {
     return (
       <main>
-        <form>
+        <form data-testid="form" onSubmit={this.handleForm}>
           <fieldset>
             <legend>Enter your URL</legend>
             <label htmlFor="URL">URL:</label>
