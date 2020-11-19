@@ -32,7 +32,9 @@ class Form extends React.Component {
             localStorage.setItem(this.state.url, JSON.stringify(searchObj));
             this.props.handleSubmit(data);
           }
-        });
+        }).catch(e => {
+          this.setState({ loading: false });
+          console.error(e)});
     }
   }
 
