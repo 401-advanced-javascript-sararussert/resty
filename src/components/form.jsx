@@ -34,7 +34,7 @@ class Form extends React.Component {
           }
         }).catch(e => {
           this.setState({ loading: false });
-          console.error(e)});
+          console.error(e);});
     }
   }
 
