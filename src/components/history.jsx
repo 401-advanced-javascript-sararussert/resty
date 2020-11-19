@@ -1,4 +1,5 @@
 import React from 'react';
+import '../design/history.scss';
 
 function history() {
   let historyList = [];

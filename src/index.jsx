@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './app.scss';
 
 import Header from './components/header.jsx';
 import Form from './components/form.jsx';
@@ -7,7 +8,6 @@ import Results from './components/results.jsx';
 import History from './components/history.jsx';
 import Footer from './components/footer.jsx';
 
-// import './app.scss';
 class App extends React.Component {
   constructor(props) {
     super(props);
