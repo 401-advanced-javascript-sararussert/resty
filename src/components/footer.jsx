@@ -4,7 +4,7 @@ import '../design/footer.scss';
 function Footer() {
   return (
     <footer>
-      <h3>This is the footer</h3>
+      <h3>an API search tool</h3>
     </footer>
   );
 }

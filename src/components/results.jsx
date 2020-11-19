@@ -1,24 +1,22 @@
 import React from 'react';
 import JSONPretty from 'react-json-pretty';
 
-class Results extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
-
-  render() {
-    console.log(this.props.results);
+function results(props) {
+  if (props.results.count > 0) {
     return (
       <div>
-        <p>Welcome to the results</p>
-        <p>The Count is: {this.props.results.count}</p>
-        <p>Body:<JSONPretty id="json-pretty" data={this.props.results.body}></JSONPretty></p>
-        {/* <p>Headers: {this.props.results.headers}</p>*/}
+        <p>The Count is: {props.results.count}</p>
+        <p>Headers:</p>
+        <JSONPretty id="json-pretty" data={props.results.headers}></JSONPretty>
+        <p>Body:</p>
+        <JSONPretty id="json-pretty" data={props.results.body}></JSONPretty>
       </div>
     );
+  } else {
+    return null;
   }
+  
 }
 
 
-export default Results;
+export default results;
