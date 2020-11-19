@@ -1,28 +1,33 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { render, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import App from '../App.js';
 
-import App from '../app.js';
-import People from '../people.js';
+const server = setupServer(
+  rest.get('*', (req, res, ctx) => {
+    return res(ctx.json({
+      results: [
+        { name: 'foo', url: 'http://test.com' },
+        { name: 'bar', url: 'http://test.com' },
+      ]
+    }));
+  })
+);
 
-describe('Testing our app components', () => {
-  it('should display hello world', async () => {
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
+
+describe('testing app components', () => {
+  it('should load names and urls from mocked endpoint', async () => {
     render(<App />);
-    const DOMElement = await screen.findByTestId('display-text');
-    expect(DOMElement).not.toBeEmptyDOMElement();
+
+    let items = await waitFor(() => screen.getAllByRole('listitem'));
+
+    expect(items[0]).toHaveTextContent('foo');
+    expect(items[1]).toHaveTextContent('bar');
   });
-
-  it('People should display a list', async () => {
-    render(<People list={[{ name: 'jacob' }]} />);
-    // const form = await screen.findByTestId('form');
-    // expect(form).not.toBeEmptyDOMElement();
-
-    // const input = await screen.findByTestId('input');
-
-    // fireEvent.change(input, { target: { value: 'https://swapi.dev/api/people' } });
-    // fireEvent.submit(form);
-
-    const list = await screen.findByTestId('output');
-    expect(list).toHaveTextContent('jacob');
-  });
-});
+})
 
