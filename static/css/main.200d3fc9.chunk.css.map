@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/design/header.scss","webpack://src/design/footer.scss"],"names":[],"mappings":"AAAA,OACE,SACF,CCFA,OACE,UACF","file":"main.200d3fc9.chunk.css","sourcesContent":["header {\n  color: red\n}\n\n","footer {\n  color: blue\n}"]}
