@@ -6,10 +6,25 @@ header {
   background-color: grey;
   color: black;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   h1 {
     align-self: center;
     font-size: 3em;
+    margin-left: 45%;
+  }
+  .nav {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    list-style-type: none;
+    li {
+      margin-right: 10px;
+    }
+  }
+  a {
+    color: black;
+    text-decoration: none;
+    
   }
 }
 
