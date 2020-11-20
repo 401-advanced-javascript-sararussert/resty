@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './app.scss';
 
 import Header from './components/header.jsx';
+import AboutUs from './components/aboutUs.jsx';
 import Form from './components/form.jsx';
 import Results from './components/results.jsx';
 import History from './components/history.jsx';
+import HistoryLarge from './components/historyLarge.jsx';
 import Footer from './components/footer.jsx';
 
 class App extends React.Component {
@@ -23,15 +26,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="main">
-        <Header />
-        <Form handleSubmit={this.handleSubmit}/>
-        <Results results={this.state}/>
-        <History> 
-          {this.state.searched}
-        </History> 
-        <Footer />
-      </div>
+      <Router>
+        <div className="main">
+          <Header />
+          <Switch>
+            <Route path="/aboutUs" component={AboutUs} />
+            <Route path="/history" component={HistoryLarge} />
+            <Route path="/" exact>
+              <Form handleSubmit={this.handleSubmit}/>
+              <Results results={this.state}/>
+              <History> 
+                {this.state.searched}
+              </History> 
+            </Route>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 } 
