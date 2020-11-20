@@ -1,6 +1,6 @@
 import React from 'react';
 import '../design/historyLarge.scss';
-import JSONPretty from 'react-json-pretty';
+// import JSONPretty from 'react-json-pretty';
 // import History from './components/history.jsx';
 
 class HistoryLarge extends React.Component {
